@@ -1,200 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TopYouTube.com | Trending Videos Reimagined</title>
-    <meta
-      name="description"
-      content="Discover the latest trending YouTube videos by category, region, and more. Updated daily with top rankings and insights."
-    />
-    <meta
-      name="keywords"
-      content="YouTube, trending videos, top YouTube, video rankings, music, gaming, tech, news, entertainment, sports"
-    />
-    <meta name="author" content="TopYouTube" />
-    <link rel="icon" href="public/assests/images/fav.ico" />
-    <link href="public/assests/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="public/assests/css/bootstrap-icons.css" />
-    <link rel="stylesheet" href="public/assests/css/style.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid px-md-5">
-        <a class="navbar-brand" href="/">
-          <img src="public/assests/images/logo.svg" alt="TopYouTube Logo" />
-        </a>
-        <div class="menu d-flex align-items-center gap-3">
-          <form
-            action="/pages/search.html"
-            class="search-form d-none d-md-block"
-          >
-            <div class="search-wrapper position-relative">
-              <input
-                type="text"
-                class="form-control search-input"
-                placeholder="Search videos..."
-                autocomplete="off"
-              />
-              <button type="submit" class="search-btn">
-                <i class="bi bi-search"></i>
-              </button>
-              <div
-                class="suggestions dropdown-menu"
-                id="navbar-suggestions"
-              ></div>
-            </div>
-          </form>
-
-          <button class="search-openbtn btn btn-light d-md-none">
-            <i class="bi bi-search"></i>
-          </button>
-          <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle custom-selectbox"
-              type="button"
-              id="countryDropdown"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <span>
-                <img
-                  src="https://flagcdn.com/us.svg"
-                  alt="US"
-                  class="country-flag"
-                />
-                <span>United States</span>
-              </span>
-              <i class="bi bi-chevron-down ms-2"></i>
-            </button>
-            <ul class="dropdown-menu custom-dropmenu" aria-labelledby="countryDropdown">
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/in.svg"
-                    alt="India"
-                    class="country-flag"
-                  />
-                  India
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/gb.svg"
-                    alt="UK"
-                    class="country-flag"
-                  />
-                  United Kingdom
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/ca.svg"
-                    alt="Canada"
-                    class="country-flag"
-                  />
-                  Canada
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/au.svg"
-                    alt="Australia"
-                    class="country-flag"
-                  />
-                  Australia
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/us.svg"
-                    alt="United States"
-                    class="country-flag"
-                  />
-                  United States
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/de.svg"
-                    alt="Germany"
-                    class="country-flag"
-                  />
-                  Germany
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/fr.svg"
-                    alt="France"
-                    class="country-flag"
-                  />
-                  France
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/jp.svg"
-                    alt="Japan"
-                    class="country-flag"
-                  />
-                  Japan
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/cn.svg"
-                    alt="China"
-                    class="country-flag"
-                  />
-                  China
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/br.svg"
-                    alt="Brazil"
-                    class="country-flag"
-                  />
-                  Brazil
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/za.svg"
-                    alt="South Africa"
-                    class="country-flag"
-                  />
-                  South Africa
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img
-                    src="https://flagcdn.com/nz.svg"
-                    alt="New Zealand"
-                    class="country-flag"
-                  />
-                  New Zealand
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- Hero Section - Smaller -->
+<!-- Header File include -->
+<?php include "includes/header.php"; ?>
+<!-- Navigation File include -->
+<?php include "includes/navigation.php"; ?>
+<?php include 'includes/db.php'; ?>
+<!-- Hero Section - Smaller -->
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Discover Trending Videos</h1>
@@ -205,38 +14,81 @@
     </section>
 
     <section class="filters">
-      <div
-        class="container-fluid px-md-5 d-flex flex-nowrap justify-content-xl-center"
-      >
-        <a href="/pages/search.html" class="btn filter-chip active">
-          <i class="bi bi-fire me-1"></i>Trendings
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-music-note-beamed me-1"></i>Music
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-joystick me-1"></i>Gaming
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-cpu me-1"></i>Tech
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-newspaper me-1"></i>News
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-trophy me-1"></i>Sports
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-film me-1"></i>Entertainment
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-camera-video me-1"></i>Film & Animation
-        </a>
-        <a href="/pages/search.html" class="btn filter-chip">
-          <i class="bi bi-airplane me-1"></i>Travel & Events
-        </a>
-      </div>
-    </section>
+  <div class="container-fluid px-md-5 d-flex flex-nowrap justify-content-xl-center">
+    <?php
+    try {
+        // Assume $pdo is your PDO connection object included before this section
+        $stmt = $pdo->query("SELECT title FROM youtube_categories");
+        $categories = $stmt->fetchAll();
+
+        // Bootstrap icon mapping by category title (default icon = bi-tag)
+        $icon_map = [
+            'Film & Animation'      => 'bi-camera-video',
+            'Autos & Vehicles'      => 'bi-truck',          // nearest icon
+            'Music'                 => 'bi-music-note-beamed',
+            'Pets & Animals'        => 'bi-paw',
+            'Sports'                => 'bi-trophy',
+            'Travel & Events'       => 'bi-airplane',
+            'Gaming'                => 'bi-joystick',
+            'People & Blogs'        => 'bi-person',
+            'Comedy'                => 'bi-emoji-smile',
+            'Entertainment'         => 'bi-film',
+            'News & Politics'       => 'bi-newspaper',
+            'Howto & Style'         => 'bi-paint-bucket',   // closest approximation
+            'Education'             => 'bi-book',
+            'Science & Technology'  => 'bi-cpu',
+            'Short Movies'          => 'bi-film',
+            'Videoblogging'         => 'bi-camera-reels',   // close to video blog
+            'News'                  => 'bi-newspaper',
+            'Autos'                 => 'bi-truck',
+            'Film'                  => 'bi-camera-video',
+            'Animation'             => 'bi-film',
+            'Comedy'                => 'bi-emoji-smile',
+            'Entertainment'         => 'bi-film',
+            'Politics'              => 'bi-megaphone',      // closest icon
+            'Howto'                 => 'bi-lightning-charge',
+            'Style'                 => 'bi-paint-bucket',
+            'Education'             => 'bi-journal-bookmark',
+            'Science'               => 'bi-beaker',
+            'Technology'            => 'bi-cpu',
+            'Movies'                => 'bi-film',
+            'Anime/Animation'       => 'bi-film',
+            'Action/Adventure'      => 'bi-controller',     // closest icon for gaming
+            'Classics'              => 'bi-bookmarks',
+            'Documentary'           => 'bi-journal-text',
+            'Drama'                 => 'bi-play-btn',
+            'Family'                => 'bi-people',
+            'Foreign'               => 'bi-globe',
+            'Horror'                => 'bi-emoji-frown',
+            'Sci-Fi/Fantasy'        => 'bi-stars',
+            'Thriller'              => 'bi-exclamation-triangle',
+            'Shorts'                => 'bi-collection-play',
+            'Shows'                 => 'bi-tv',
+            'Trailers'              => 'bi-film',
+            // Default fallback handled by code with 'bi-tag'
+        ];
+
+
+        $first = true;  // Track first for adding 'active' class
+
+        foreach ($categories as $category) {
+            $title = htmlspecialchars($category['title']);
+            $icon_class = $icon_map[$title] ?? 'bi-tag'; // default icon if no match
+            $active_class = $first ? ' active' : '';
+            $first = false;
+
+            echo "<a href='/pages/search.html' class='btn filter-chip$active_class'>";
+            echo "<i class='bi $icon_class me-1'></i>$title";
+            echo "</a>";
+        }
+    } catch (Exception $e) {
+        echo "<!-- Could not load categories -->";
+        // Optionally log $e->getMessage();
+    }
+    ?>
+  </div>
+</section>
+
 
     <!-- Ad Zone (shifted up, before trending) -->
     <section class="ad-zone">
@@ -1473,31 +1325,5 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container-fluid footer-content">
-        <h3 class="footer-title">Stay Updated</h3>
-        <form class="newsletter-form">
-          <input
-            type="email"
-            class="form-control newsletter-input"
-            placeholder="Your email"
-          />
-          <button type="submit" class="btn newsletter-btn">Subscribe</button>
-        </form>
-        <div class="footer-links">
-          <a href="#" class="footer-link">Privacy</a>
-          <a href="#" class="footer-link">Terms</a>
-          <a href="#" class="footer-link">Contact</a>
-          <a href="#" class="footer-link">About</a>
-        </div>
-        <p class="footer-copyright">
-          &copy; 2025 TopYouTube. All rights reserved.
-        </p>
-      </div>
-    </footer>
-
-    <script src="public/assests/js/bootstrap.bundle.min.js"></script>
-    <script src="public/assests/js/script.js"></script>
-  </body>
-</html>
+<!-- Footer File include  -->
+<?php include "includes/footer.php"; ?>

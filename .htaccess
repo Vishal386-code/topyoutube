@@ -1,1 +1,14 @@
+RewriteEngine On
+
+# If the requested URL does NOT map to a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Then rewrite requests without extension to add .php
+RewriteRule ^(.*?)/?$ $1.php [L]
+
+# Also redirect .html to .php (for any path)
+RewriteRule ^(.*)\.html$ $1.php [L]
+
+# Custom 404 page
 ErrorDocument 404 /pages/404.html
