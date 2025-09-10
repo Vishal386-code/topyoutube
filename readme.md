@@ -20,64 +20,63 @@ TopYouTube is a PHP-based web application that showcases trending YouTube videos
 
 ## Folder Structure  
 
-### Root Directory
-/cron/ # Cron jobs for fetching YouTube data
-/includes/ # Core PHP includes (db, header, footer, video logic)
-/pages/ # Static and dynamic pages (About, Contact, Search, etc.)
-/public/ # Public assets (css, js, images, fonts)
-/vendor/ # Composer dependencies (PHPMailer for SMTP)
-.env # Environment variables (API keys, DB, SMTP)
-.htaccess # URL rewriting rules
-index.php # Homepage (Trending videos)
-readme.md # Project documentation
-robots.txt # SEO robots config
-
-
----
-
-### `cron/` (YouTube data fetchers)
+### Root Directory  
+- `/cron/` → Cron jobs for fetching YouTube data  
+- `/includes/` → Core PHP includes (db, header, footer, video logic)  
+- `/pages/` → Static and dynamic pages (About, Contact, Search, etc.)  
+- `/public/` → Public assets (css, js, images, fonts)  
+- `/vendor/` → Composer dependencies (PHPMailer for SMTP)  
+- `.env` → Environment variables (API keys, DB, SMTP)  
+- `.htaccess` → URL rewriting rules  
+- `index.php` → Homepage (Trending videos)  
+- `readme.md` → Project documentation  
+- `robots.txt` → SEO robots config  
 
 ---
 
-### `includes/` (Reusable components)
-config.php # Loads environment config
-db.php # Database connection
-dropdown.php # Category/region dropdown logic
-filters.php # Video filters (category/region)
-footer.php # Footer include
-header.php # Header include
-load_search_videos.php # AJAX loader for search videos
-load_videos.php # AJAX loader for videos
-navigation.php # Navbar include
-search_suggestions.php # AJAX live search suggestions
-video-card.php # Single video card template
-youtube_category.php # Fetch videos by category
-youtube_videos.php # Fetch videos (homepage, AJAX)
-
+### `cron/` (YouTube data fetchers)  
+- `fetch_youtube_videos.php` → Fetch latest trending YouTube videos  
+- `youtube_category_cron.php` → Fetch YouTube categories (daily update)  
 
 ---
 
-### `pages/` (Static pages)
-404.php # Custom error page
-aboutus.php # About Us
-affiliate-disclosure.php # Affiliate Disclosure
-contactus.php # Contact form (SMTP via PHPMailer)
-privacy-policy.php # Privacy Policy
-search.php # Search page
-terms-of-use.php # Terms of Use
+### `includes/` (Reusable components)  
+- `config.php` → Loads environment config  
+- `db.php` → Database connection  
+- `dropdown.php` → Category/region dropdown logic  
+- `filters.php` → Video filters (category/region)  
+- `footer.php` → Footer include  
+- `header.php` → Header include  
+- `load_search_videos.php` → AJAX loader for search videos  
+- `load_videos.php` → AJAX loader for videos  
+- `navigation.php` → Navbar include  
+- `search_suggestions.php` → AJAX live search suggestions  
+- `video-card.php` → Single video card template  
+- `youtube_category.php` → Fetch videos by category  
+- `youtube_videos.php` → Fetch videos (homepage, AJAX)  
 
 ---
 
-### `public/`
-assets/
-css/ # Stylesheets (Bootstrap, custom styles)
-js/ # JS scripts (Bootstrap, custom)
-images/ # Logo, favicon, etc.
-fonts/ # Web fonts
+### `pages/` (Static pages)  
+- `404.php` → Custom error page  
+- `aboutus.php` → About Us  
+- `affiliate-disclosure.php` → Affiliate Disclosure  
+- `contactus.php` → Contact form (SMTP via PHPMailer)  
+- `privacy-policy.php` → Privacy Policy  
+- `search.php` → Search page  
+- `terms-of-use.php` → Terms of Use  
 
 ---
 
-### `vendor/`
+### `public/`  
+- `assets/css/` → Stylesheets (Bootstrap, custom styles)  
+- `assets/js/` → JS scripts (Bootstrap, custom)  
+- `assets/images/` → Logo, favicon, etc.  
+- `assets/fonts/` → Web fonts  
+
+---
+
+### `vendor/`  
 - Used for **SMTP (PHPMailer)** and future Composer dependencies.  
 
 ---
